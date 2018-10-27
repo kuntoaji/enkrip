@@ -1,0 +1,1 @@
+require 'enkrip/version'
