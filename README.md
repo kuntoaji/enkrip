@@ -1,6 +1,6 @@
 # Enkrip
 
-Encrypt & decrypt Active Record's model attributes with Message Encryptor.
+Encrypt & decrypt Active Record's model attributes with Message Encryptor. See [Enkrip Example Rails Application](https://github.com/kuntoaji/enkrip_example) for demo.
 
 ## Goals
 
