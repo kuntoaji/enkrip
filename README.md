@@ -67,7 +67,7 @@ class Post < ActiveRecord::Base
     config.convert_method_for_numeric_attribute = :to_f # optional, default is to_i
     config.default_value_if_numeric_attribute_blank =  0.0 # optional, default is 0
   end
-  
+
   validates :my_numeric, numericality: { greater_than: 0 }
   validates :my_string, presence: true
 end
@@ -96,6 +96,18 @@ raw.rows.first[raw.columns.find_index('my_numeric')]
 post.reload
 post.my_string # => "aloha"
 post.my_numeric # => 5
+```
+
+You can use `Enkrip::Engine.encrypt` and `Enkrip::Engine.decrypt` to encrypt and decrypt a value.
+
+```ruby
+my_string = 'hello world'
+
+encrypted_my_string = Enkrip::Engine.encrypt my_string
+# => "MzZ1M0RDSWdQQ0VaRVJXT3NBYlVTWExWVnVSbXNBeXRMSC9wYWdoeW5Ddz0tLVNVT2l6NDJCd1ZxbW1lYnl2eC9PakE9PQ==--c7436c403595c18fef802a51be29f73d5bb73f19"
+
+Enkrip::Engine.decrypt encrypted_my_string
+# => "hello world"
 ```
 
 ## License
