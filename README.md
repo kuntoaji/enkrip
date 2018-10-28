@@ -1,6 +1,6 @@
 # Enkrip
 
-Encrypt & decrypt Active Record's model attributes with Message Encryptor. See [Enkrip Example Rails Application](https://github.com/kuntoaji/enkrip_example) for demo.
+Encrypt & decrypt Active Record's model attributes with [Active::Support::MessageEncryptor](https://api.rubyonrails.org/v5.2.1/classes/ActiveSupport/MessageEncryptor.html). See [Enkrip Example Rails Application](https://github.com/kuntoaji/enkrip_example) for demo.
 
 ## Goals
 
@@ -18,7 +18,7 @@ Encrypt & decrypt Active Record's model attributes with Message Encryptor. See [
 
 Add `enkrip` to your Rails app’s Gemfile and run bundle install:
 
-```
+```ruby
 gem 'enkrip'
 ```
 
@@ -26,7 +26,7 @@ gem 'enkrip'
 
 After installation, you need to define `ENKRIP_LENGTH`, `ENKRIP_SALT`, and `ENKRIP_SECRET` environment variables:
 
-```
+```bash
 # example
 export ENKRIP_LENGTH=32 # 32 is default value from ActiveSupport::MessageEncryptor.key_len
 export ENKRIP_SALT=random_salt_with_length_32 # you can generate from SecureRandom.random_bytes(YOUR_ENKRIP_LENGTH)
@@ -37,7 +37,7 @@ export ENKRIP_SECRET=random_secret_with_length_32
 
 Use text data type for encrypted attributes
 
-```
+```ruby
 # migration
 
 class CreatePosts < ActiveRecord::Migration[5.2]
@@ -54,7 +54,7 @@ end
 
 After run the migration, define you encrypted attributes
 
-```
+```ruby
 # Active Record model
 
 class Post < ActiveRecord::Base
@@ -67,12 +67,15 @@ class Post < ActiveRecord::Base
     config.convert_method_for_numeric_attribute = :to_f # optional, default is to_i
     config.default_value_if_numeric_attribute_blank =  0.0 # optional, default is 0
   end
+  
+  validates :my_numeric, numericality: { greater_than: 0 }
+  validates :my_string, presence: true
 end
 ```
 
 You can check encrypted value from rails console with raw query
 
-```
+```ruby
 # Rails 5.2 console
 post = Post.new => #<Post id: nil, my_string: nil, my_numeric: nil, created_at: nil, updated_at: nil>
 post.valid? # => false
