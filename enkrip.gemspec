@@ -1,15 +1,21 @@
 require 'date'
 require_relative 'lib/enkrip/version'
 
-Gem::Specification.new do |s|
-  s.name        = 'enkrip'
-  s.version     = Enkrip::VERSION
-  s.date        = Date.today.to_s
-  s.summary     = 'encrypt & decrypt Active Record attributes with Message Encryptor'
-  s.description = 'encrypt & decrypt Active Record attributes with Message Encryptor'
-  s.author      = 'Kunto Aji Kristianto'
-  s.email       = 'kuntoaji@kaklabs.com'
-  s.files       = `git ls-files -z`.split("\x0")
-  s.homepage    = 'http://github.com/kuntoaji/enkrip'
-  s.license     = 'MIT'
+Gem::Specification.new do |spec|
+  spec.name        = 'enkrip'
+  spec.version     = Enkrip::VERSION
+  spec.date        = Date.today.to_s
+  spec.summary     = 'encrypt & decrypt Active Record attributes with Message Encryptor'
+  spec.description = 'encrypt & decrypt Active Record attributes with Message Encryptor'
+  spec.author      = 'Kunto Aji Kristianto'
+  spec.email       = 'kuntoaji@kaklabs.com'
+  spec.files       = `git ls-files -z`.split("\x0")
+  spec.homepage    = 'http://github.com/kuntoaji/enkrip'
+  spec.license     = 'MIT'
+
+  spec.add_dependency 'activerecord', '>= 5.2', '< 6'
+  spec.add_development_dependency 'bundler', '~> 1.16'
+  spec.add_development_dependency 'rake', '~> 12.3'
+  spec.add_development_dependency 'minitest', '~> 5.11'
+  spec.add_development_dependency 'sqlite3'
 end
