@@ -6,13 +6,14 @@ Encrypt & decrypt Active Record's model attributes with [ActiveSupport::MessageE
 
 * Seamlessly encrypt and decrypt value for both string and numeric attribute
 * Compatible with Active Model validation
-* Automatically convert numeric attributes to desired data types
+* Automatically convert numeric attributes to desired format after decryption
 
 ## Limitations
 
 * All attributes that are defined in `numeric_attributes` will be forced to use UTF-8 encoding
 * Enkrip requires Active Record 5.2 or newer
 * Does not compatible with [activerecord-import](https://rubygems.org/gems/activerecord-import)
+* In some cases, does not compatible with [ActiveRecord::Attributes](https://api.rubyonrails.org/classes/ActiveRecord/Attributes/ClassMethods.html)
 
 ## Installation
 
