@@ -36,7 +36,7 @@ export ENKRIP_SECRET=random_secret_with_length_32
 
 ## Usage
 
-Use text data type for encrypted attributes
+Use `text` data type for encrypted attributes
 
 ```ruby
 # migration
@@ -53,7 +53,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
 end
 ```
 
-After run the migration, define you encrypted attributes
+After run the migration, define your encrypted attributes
 
 ```ruby
 # Active Record model
@@ -99,6 +99,7 @@ post.my_string # => "aloha"
 post.my_numeric # => 5
 ```
 
+## Usage For non-Active Record Model
 You can use `Enkrip::Engine.encrypt` and `Enkrip::Engine.decrypt` to encrypt and decrypt a value.
 
 ```ruby
@@ -109,7 +110,10 @@ encrypted_my_string = Enkrip::Engine.encrypt my_string
 
 Enkrip::Engine.decrypt encrypted_my_string
 # => "hello world"
+```
 
+You can pass `purpose` to the `Enkrip::Engine.decrypt` and `Enkrip::Engine.encrypt`.
+```
 # you can pass purpose parameter, default purpose is nil.
 second_string = 'hello world 2'
 another_encrypted_my_string = Enkrip::Engine.encrypt second_string, purpose: :example_purpose
