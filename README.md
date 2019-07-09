@@ -29,8 +29,13 @@ After installation, you need to define `ENKRIP_LENGTH`, `ENKRIP_SALT`, and `ENKR
 
 ```bash
 # example
-export ENKRIP_LENGTH=32 # 32 is default value from ActiveSupport::MessageEncryptor.key_len
-export ENKRIP_SALT=random_salt_with_length_32 # you can generate from SecureRandom.random_bytes(YOUR_ENKRIP_LENGTH)
+# 32 is default value from ActiveSupport::MessageEncryptor.key_len
+export ENKRIP_LENGTH=32
+
+# you can generate this value with SecureRandom.random_bytes(YOUR_ENKRIP_LENGTH)
+export ENKRIP_SALT=random_salt_with_length_32
+
+# 32 random characters
 export ENKRIP_SECRET=random_secret_with_length_32
 ```
 
@@ -113,7 +118,7 @@ Enkrip::Engine.decrypt encrypted_my_string
 ```
 
 You can pass `purpose` to the `Enkrip::Engine.decrypt` and `Enkrip::Engine.encrypt`.
-```
+```ruby
 # you can pass purpose parameter, default purpose is nil.
 second_string = 'hello world 2'
 another_encrypted_my_string = Enkrip::Engine.encrypt second_string, purpose: :example_purpose
