@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/enkrip.svg)](https://badge.fury.io/rb/enkrip)
+
 # Enkrip
 
 Encrypt & decrypt Active Record's model attributes with [ActiveSupport::MessageEncryptor](https://api.rubyonrails.org/v5.2.1/classes/ActiveSupport/MessageEncryptor.html). See [Enkrip Example Rails Application](https://github.com/kuntoaji/enkrip_example) for demo.
