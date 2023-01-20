@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.homepage    = 'http://github.com/kuntoaji/enkrip'
   spec.license     = 'MIT'
 
-  spec.add_dependency 'activerecord', '>= 5.2', '< 6'
+  spec.add_dependency 'activerecord', '>= 5.2', '< 8'
   spec.add_development_dependency 'bundler', '~> 1.16'
   spec.add_development_dependency 'rake', '~> 12.3'
   spec.add_development_dependency 'minitest', '~> 5.11'
