@@ -2,6 +2,9 @@
 
 # Enkrip
 
+> [!WARNING]
+> **Enkrip is deprecated and no longer maintained.** It supports only Active Record 5.2, which no longer gets security fixes. Use [Active Record Encryption](https://guides.rubyonrails.org/active_record_encryption.html), which is built into Rails 7.0 and newer. To move existing Enkrip data, follow [MIGRATION.md](MIGRATION.md).
+
 Encrypt & decrypt Active Record's model attributes with [ActiveSupport::MessageEncryptor](https://api.rubyonrails.org/v5.2.1/classes/ActiveSupport/MessageEncryptor.html). See [Enkrip Example Rails Application](https://github.com/kuntoaji/enkrip_example) for demo.
 
 ## Goals
